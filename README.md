@@ -2,7 +2,7 @@
 
 ## Author Steps
 
-###Get the dependencies for working on angular
+### Get the dependencies for working on angular
 Inside the project directory on cmd
 To work on development webserver localhost:4200
 npm i 
