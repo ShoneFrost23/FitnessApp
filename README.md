@@ -4,8 +4,8 @@
 
 ### Get the dependencies for working on angular
 Inside the project directory on cmd
-To work on development webserver localhost:4200
-npm i 
+To work on development webserver localhost:4200 \n
+npm i \n
 npm start
 
 ### Get the electron dependencies
