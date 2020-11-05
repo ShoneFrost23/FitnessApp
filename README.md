@@ -2,29 +2,29 @@
 
 ## Author Steps
 
-## Get the dependencies for working on angular
+###Get the dependencies for working on angular
 Inside the project directory on cmd
 To work on development webserver localhost:4200
 npm i 
 npm start
 
-## Get the electron dependencies
+### Get the electron dependencies
 To view it in electron app refer https://fireship.io/lessons/desktop-apps-with-electron-and-angular/
 npm install electron --save-dev
 npm install electron-packager -g
 npm install electron-packager --save-dev
 
-## To View the electron App  
+### To View the electron App  
 npm run electron-build
 
-## Packaging as executable 
+### Packaging as executable 
 !!Run cmd as administrator for packaging  If developing on windows some symlinks error for packaging on electron
 To package it for mac windows use --overwrite flag if it asks
 electron-packager . --platform=win32
 electron-packager . --platform=darwin
 for linux just see the documentation for electron packager and figure it out
 
-## Moving the files 
+### Moving the files 
 you cant COPY/PASTE packaged mac app
 but you can CUT/PASTE it 
 Also do compression in 7 zip. normal zip did not work 
