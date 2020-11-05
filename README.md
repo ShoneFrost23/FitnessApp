@@ -9,25 +9,25 @@ npm i <br/>
 npm start <br/>
 
 ### Get the electron dependencies
-To view it in electron app refer https://fireship.io/lessons/desktop-apps-with-electron-and-angular/
-npm install electron --save-dev
-npm install electron-packager -g
-npm install electron-packager --save-dev
+To view it in electron app refer https://fireship.io/lessons/desktop-apps-with-electron-and-angular/ <br/>
+npm install electron --save-dev <br/>
+npm install electron-packager -g <br/>
+npm install electron-packager --save-dev <br/>
 
 ### To View the electron App  
-npm run electron-build
+npm run electron-build 
 
 ### Packaging as executable 
-!!Run cmd as administrator for packaging  If developing on windows some symlinks error for packaging on electron
-To package it for mac windows use --overwrite flag if it asks
-electron-packager . --platform=win32
-electron-packager . --platform=darwin
-for linux just see the documentation for electron packager and figure it out
+!!Run cmd as administrator for packaging  If developing on windows some symlinks error for packaging on electron <br/>
+To package it for mac windows use --overwrite flag if it asks <br/> 
+electron-packager . --platform=win32 <br/>
+electron-packager . --platform=darwin <br/>
+for linux just see the documentation for electron packager and figure it out <br/>
 
 ### Moving the files 
-you cant COPY/PASTE packaged mac app
-but you can CUT/PASTE it 
-Also do compression in 7 zip. normal zip did not work 
+you cant COPY/PASTE packaged mac app <br/>
+but you can CUT/PASTE it <br/>
+Also do compression in 7 zip. normal zip did not work <br/> 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
