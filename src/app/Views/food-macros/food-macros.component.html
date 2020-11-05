@@ -1,0 +1,168 @@
+<div id="main">
+  <div class="container-fluid">
+    <div class="row justify-content-center mt-2">
+      <div class="col-12 col-sm-12 col-lg-12 col-xl-11">
+        <h1>Create Meal Plan</h1>
+      </div>
+    </div>
+
+    <div class="row justify-content-center mt-2">
+      <div class="col-12 col-sm-12 col-lg-12 col-xl-11">
+        <div class="card">
+          <div class="card-body">
+
+              <div class="container-fluid" style="padding-left:0;padding-right:0;" *ngIf="sharedService.is_client_info===false">
+                <div class="row">
+                  <div class="col-12 col-sm-12 col-lg-12 col-xl-12">
+                    <h2>Complete Previous Step</h2>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container-fluid" style="padding-left:0;padding-right:0;" *ngIf="sharedService.is_client_info===true">
+                <div class="row">
+                  <div class="col-8 col-sm-8 col-lg-8 col-xl-8">
+                    <mat-form-field appearance="fill" style="width:100%;"  color="primary">
+                      <mat-label>Program</mat-label>
+                      <mat-select [(value)]="selectedProgram" [disabled]="disabled" required>
+                        <mat-option *ngFor="let program of programList" [value]="program">{{program}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-4 col-sm-4 col-lg-4 col-xl-4" style="padding-left:0;">
+                    <mat-form-field appearance="fill" style="width:100%;" color="primary">
+                      <mat-label>TDEE</mat-label>
+                      <input matInput [formControl]="TDEEFormControl" [readonly]="disabled" required type="number">
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="row justify-content-end" *ngIf="!showMacros">
+
+                  <div class="col-5 col-sm-4 col-lg-4 col-xl-3" style="padding-left:0;">
+                    <button mat-raised-button  style="width:100%;" color="primary"  (click)="onContinue()">Continue</button>
+                  </div>
+                </div>
+
+
+                <div class="row" *ngIf="showMacros && (!showNeutral)">
+                  <div class="col-4 col-sm-4 col-lg-4 col-xl-4">
+                    <mat-form-field appearance="fill" style="width:100%;" color="primary">
+                      <mat-label>High Protein</mat-label>
+                      <input matInput [formControl]="highProteinFormControl"  required type="number">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-4 col-sm-4 col-lg-4 col-xl-4" style="padding-left:0;">
+                    <mat-form-field appearance="fill" style="width:100%;" color="primary">
+                      <mat-label>High Carb</mat-label>
+                      <input matInput [formControl]="highCarbFormControl" required type="number">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-4 col-sm-4 col-lg-4 col-xl-4" style="padding-left:0;">
+                    <mat-form-field appearance="fill" style="width:100%;" color="primary">
+                      <mat-label>High Fat</mat-label>
+                      <input matInput [formControl]="highfatFormControl"  required type="number">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-4 col-sm-4 col-lg-4 col-xl-4">
+                    <mat-form-field appearance="fill" style="width:100%;" color="primary">
+                      <mat-label>Low Protein</mat-label>
+                      <input matInput [formControl]="lowProteinFormControl"  required type="number">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-4 col-sm-4 col-lg-4 col-xl-4" style="padding-left:0;">
+                    <mat-form-field appearance="fill" style="width:100%;" color="primary" mat>
+                      <mat-label>Low Carb</mat-label>
+                      <input matInput [formControl]="lowCarbFormControl"  required type="number">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-4 col-sm-4 col-lg-4 col-xl-4" style="padding-left:0;">
+                    <mat-form-field appearance="fill" style="width:100%;" color="primary">
+                      <mat-label>Low Fat</mat-label>
+                      <input matInput [formControl]="lowfatFormControl"  required type="number">
+                    </mat-form-field>
+                  </div>
+
+
+
+                </div>
+
+                <div class="row" *ngIf="showMacros && (showNeutral)">
+                  <div class="col-4 col-sm-4 col-lg-4 col-xl-4">
+                    <mat-form-field appearance="fill" style="width:100%;" color="primary">
+                      <mat-label>Protein</mat-label>
+                      <input matInput [formControl]="neutralProteinFormControl"  required type="number">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-4 col-sm-4 col-lg-4 col-xl-4" style="padding-left:0;">
+                    <mat-form-field appearance="fill" style="width:100%;" color="primary">
+                      <mat-label>Carb</mat-label>
+                      <input matInput [formControl]="neutralCarbFormControl" required type="number">
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-4 col-sm-4 col-lg-4 col-xl-4" style="padding-left:0;">
+                    <mat-form-field appearance="fill" style="width:100%;" color="primary">
+                      <mat-label>Fat</mat-label>
+                      <input matInput [formControl]="neutralfatFormControl"  required type="number">
+                    </mat-form-field>
+                  </div>
+
+                </div>
+
+                <div class="row" *ngIf="showMacros">
+                  <div class="col-6 col-sm-6 col-lg-6 col-xl-6">
+                    <mat-form-field appearance="fill" style="width:100%;"  color="primary">
+                      <mat-label>No Of Meals</mat-label>
+                      <mat-select [(value)]="selected_no_meals" required>
+                        <mat-option *ngFor="let i of no_meals_list" [value]="i">{{i}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-6 col-sm-6 col-lg-6 col-xl-6">
+                    <mat-form-field appearance="fill" style="width:100%;"  color="primary">
+                      <mat-label>No of Extra Shakes</mat-label>
+                      <mat-select [(value)]="selected_no_shakes" required>
+                        <mat-option *ngFor="let i of no_shakes_list" [value]="i">{{i}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+
+                  <div class="col-12 col-sm-12 col-lg-12 col-xl-12">
+                    <mat-form-field appearance="fill" style="width:100%;"  color="primary">
+                      <mat-label>Exclusions</mat-label>
+                      <mat-select [(value)]="selected_exclusions" required multiple>
+                        <mat-option *ngFor="let i of exclution_list" [value]="i">{{i}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="row justify-content-end" *ngIf="showMacros">
+                  <div class="col-5 col-sm-4 col-lg-4 col-xl-3">
+                    <button mat-raised-button  style="width:100%;" color="primary" (click)="onBack()">BacK</button>
+                  </div>
+
+                  <div class="col-5 col-sm-4 col-lg-4 col-xl-3" style="padding-left:0;">
+                    <button mat-raised-button  style="width:100%;" color="primary"  (click)="onSubmit()">Submit</button>
+                  </div>
+                </div>
+
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
