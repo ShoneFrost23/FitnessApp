@@ -1,5 +1,27 @@
 # MyFitnessApp
 
+## Author Steps
+Inside the project directory on cmd
+To work on development webserver localhost:4200
+npm i 
+npm start
+
+To view it in electron app refer https://fireship.io/lessons/desktop-apps-with-electron-and-angular/
+npm install electron --save-dev
+npm install electron-packager -g
+npm install electron-packager --save-dev
+
+to view app 
+npm run electron-build
+
+!!Run cmd as administrator for packaging  If developing on windows
+To package it for mac windows use --overwrite flag if it asks
+electron-packager . --platform=win32
+electron-packager . --platform=darwin
+
+you cant copy paste packaged mac app but you can move it
+Also do compression in 7 zip. normal zip did not work 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.5.
 
 ## Development server
