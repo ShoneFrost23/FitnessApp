@@ -4,9 +4,9 @@
 
 ### Get the dependencies for working on angular
 Inside the project directory on cmd
-To work on development webserver localhost:4200 \n
-npm i \n
-npm start
+To work on development webserver localhost:4200 <br/>
+npm i <br/>
+npm start <br/>
 
 ### Get the electron dependencies
 To view it in electron app refer https://fireship.io/lessons/desktop-apps-with-electron-and-angular/
